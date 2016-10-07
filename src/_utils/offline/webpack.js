@@ -1,11 +1,8 @@
 // @flow
 
-import { resolve } from "path"
 import { sync as globSync } from "globby"
 import OfflinePlugin from "offline-plugin"
 import joinUri from "url-join"
-
-const runtimeEntry = resolve(__dirname, "runtime.js")
 
 export const offlinePlugin = (config: PhenomicConfig): Array<Object> => {
   if (!config.offline) {
@@ -72,6 +69,9 @@ export const offlinePlugin = (config: PhenomicConfig): Array<Object> => {
 
       ServiceWorker: {
         events: true,
+        // no need for event, since network-first approach make this useless
+        // to warn the user for updates
+        // events: true,
         navigateFallbackURL: "/",
       },
 
@@ -87,15 +87,5 @@ export const offlinePlugin = (config: PhenomicConfig): Array<Object> => {
       // For more options, check out the documentation
       // https://www.npmjs.com/package/offline-plugin
     }),
-  ]
-}
-
-export const offlineEntry = (config: PhenomicConfig): Array<string> => {
-  if (!config.offline) {
-    return []
-  }
-
-  return [
-    runtimeEntry,
   ]
 }

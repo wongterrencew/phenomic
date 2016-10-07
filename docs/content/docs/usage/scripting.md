@@ -24,6 +24,8 @@ Several constants are exposed (injected) in your JavaScript code in
 - ``process.env.PHENOMIC_VERSION``: Phenomic version
 - ``process.env.PHENOMIC_HOMEPAGE``: Phenomic homepage url
 - ``process.env.PHENOMIC_REPOSITORY``: Phenomic repository url
+- ``process.env.PHENOMIC_OFFLINE_MODE``: boolean to know if website has offline option on
+- ``process.env.PHENOMIC_OFFLINE_BANNER``: boolean to know if website has automatic offline banner
 
 ## Available modules
 
@@ -74,6 +76,15 @@ class Page extends Component {
 ```
 
 [Check the usage in the phenomic-theme-base.](https://github.com/MoOx/phenomic/blob/master/themes/phenomic-theme-base/src/layouts/Page/index.js)
+
+#### ``OfflineBanner``
+
+This component is automatically injected when you are using offline mode.
+That said, if it does not fit your design you can omit it by using
+``offline.banner`` option, then add your own instance.
+
+See [Offline Browsing](../../advanced/offline-browsing/#banner-boolean--true)
+for more information.
 
 ### Utilities
 

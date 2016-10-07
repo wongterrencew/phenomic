@@ -41,6 +41,7 @@ test("should not accept invalid types for 'appcache' and 'serviceWorker'",
       offline: {
         appcache: "foo",
         serviceWorker: 1,
+        banner: {},
       },
     })
   },
@@ -52,6 +53,10 @@ test("should not accept invalid types for 'appcache' and 'serviceWorker'",
     error.message.includes(
       "- You provided an incorrect type ('number') " +
       "for 'phenomic.offline.serviceWorker' option."
+    ) &&
+    error.message.includes(
+      "- You provided an incorrect type ('object') " +
+      "for 'phenomic.offline.banner' option."
     )
   ))
 })
@@ -77,6 +82,10 @@ test("should not accept invalid types or missing key",
     error.message.includes(
       "- You provided an incorrect type ('undefined') "+
       "for 'phenomic.offline.cachePatterns' option."
+    ) &&
+    error.message.includes(
+      "- You provided an incorrect type ('undefined') "+
+      "for 'phenomic.offline.banner' option."
     )
   ))
 })
@@ -148,6 +157,7 @@ test("should accept correct patterns option", (t) => {
       offline: {
         appcache: true,
         serviceWorker: true,
+        banner: false,
         cachePatterns: {
           onInstall: [ "wat" ],
         },

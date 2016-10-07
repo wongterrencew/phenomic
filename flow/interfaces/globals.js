@@ -8,6 +8,8 @@ declare var process: {
     PHENOMIC_VERSION: string,
     PHENOMIC_HOMEPAGE: string,
     PHENOMIC_REPOSITORY: string,
+    PHENOMIC_OFFLINE_MODE: boolean,
+    PHENOMIC_OFFLINE_BANNER: boolean,
   },
   cwd: () => string,
   agrv: Array<string>,

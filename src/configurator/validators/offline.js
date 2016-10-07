@@ -14,7 +14,10 @@ export const defaultOfflineConfig: PhenomicOfflineConfig = {
     onDemand: [ ],
     excludes: [ "**/.*", "**/*.map", "**/*.html" ],
   },
+  banner: true,
 }
+
+const knownKeys = Object.keys(defaultOfflineConfig)
 
 export default (
   { pkg, config, errors }:
@@ -60,6 +63,22 @@ export default (
         "You provided an incorrect type"+
         ` ('${ typeof userOfflineConfig.serviceWorker }') ` +
         "for 'phenomic.offline.serviceWorker' option. " +
+        "This option accepts a boolean value."
+      )
+    }
+    if (typeof userOfflineConfig.appcache !== "boolean") {
+      errors.push(
+        "You provided an incorrect type"+
+        ` ('${ typeof userOfflineConfig.appcache }') ` +
+        "for 'phenomic.offline.appcache' option. " +
+        "This option accepts a boolean value."
+      )
+    }
+    if (typeof userOfflineConfig.banner !== "boolean") {
+      errors.push(
+        "You provided an incorrect type"+
+        ` ('${ typeof userOfflineConfig.banner }') ` +
+        "for 'phenomic.offline.banner' option. " +
         "This option accepts a boolean value."
       )
     }
@@ -132,6 +151,7 @@ export default (
       serviceWorker: false,
       appcache: false,
       cachePatterns: {},
+      banner: false,
     }
     log(
       gray(

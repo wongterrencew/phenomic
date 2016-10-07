@@ -6,7 +6,6 @@ import "./hightlightjs.global.css"
 import GoogleAnalyticsTracker from "./components/GoogleAnalyticsTracker"
 import Container from "./components/Container"
 import DefaultHeadMeta from "./components/DefaultHeadMeta"
-import AppCacheBanner from "./components/AppCacheBanner"
 import Header from "./components/Header"
 import Content from "./components/Content"
 import Footer from "./components/Footer"
@@ -15,7 +14,6 @@ const AppContainer = (props) => (
   <GoogleAnalyticsTracker params={ props.params }>
     <Container>
       <DefaultHeadMeta />
-      <AppCacheBanner />
       <Header />
       <Content>
         { props.children }

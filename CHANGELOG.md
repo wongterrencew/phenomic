@@ -1,3 +1,5 @@
+# 0.17.7 - 2016-10-05
+
 - Fixed: ``offline.appcache`` option was supporting a bunch of options that
   were completely ignored.
   We removed this useless options.
@@ -8,7 +10,18 @@
   (It was "cache first" since 0.15.0). If that's the behavior you want to keep,
   please open an issue so we can discuss about that. We think cache-first does
   not provide a good UX when it comes to update the content.
+- Added: an ``<OfflineBanner />`` is now automatically injected in your pages.
+  This replace the required offline runtime introduced
+  This banner has been introduced to fit the "cache first" idea.
+  We need to provide a clear UX on content updates.
+  If you don't like this banner you can:
+  - use set ``offline`` ``banner: false``
+  ``import { OfflineBanner } from "phenomic"`` allow you to
 - Added: new ``force-offline`` option, to force offline mode during development
+- Added: new injected constants in ``process.env``:
+  ``process.env.PHENOMIC_OFFLINE_MODE``: true if offline is on.
+  ``process.env.PHENOMIC_OFFLINE_BANNER``: true if offline banner is enabled.
+
 # 0.17.6 - 2016-10-04
 
 - Fixed: RSS feed made using ``PhenomicLoaderFeedWebpackPlugin`` have all

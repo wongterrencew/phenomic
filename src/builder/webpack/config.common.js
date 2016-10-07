@@ -31,6 +31,8 @@ export default (config: PhenomicConfig): WebpackConfig => {
         PHENOMIC_VERSION: wrap(pkg.version),
         PHENOMIC_HOMEPAGE: wrap(pkg.homepage),
         PHENOMIC_REPOSITORY: wrap(pkg.repository),
+        PHENOMIC_OFFLINE_MODE: wrap(Boolean(config.offline)),
+        PHENOMIC_OFFLINE_BANNER: wrap(Boolean(config.offlineConfig.banner)),
       } }),
     ],
   }

@@ -132,8 +132,65 @@ When you will build your website and you may notice some new files and folder
 in ``dist`` folder such as ``appcache``, ``sw.js``
 (depending on the options you provided).
 
-⚠️ **Note**: AppCache support will not be enabled in development mode to
-avoid the pain it can cause.
+### ``banner: boolean = false``
+
+When you use a cache first approach (eg: Appcache),
+cache is loading instantly and upgrade is being downloaded in the background.
+When update is ready, instead of reloading the page, we think it's better to
+warn the user with a small message that he can update the page to avoid breaking
+his current flow (eg: reading something).
+
+🍭 If you want to play with the UI state, you can use in your browser console
+``window.PhenomicOfflineBanner.handle*()`` method directly to simulate a
+offline flow.
+
+Eg:
+- ``window.PhenomicOfflineBanner.handleDownloading()`` // downloading update
+- ``window.PhenomicOfflineBanner.handleError()`` // An error occured, only visible after a download event
+- ``window.PhenomicOfflineBanner.handleUpdateReady()`` // only visible after a download event
+
+⚠️ If you don't want this banner with its default style,
+you can disable this option and use our component with custom options:
+
+
+```js
+// ...
+import { OfflineBanner } from "phenomic"
+
+class AppContainer extends Component {
+  render() {
+    return (
+      <div>
+        <OfflineBanner
+          useDefaultStyles=false
+          color="#fff"
+          backgroundColor="#1cae69"
+          backgroundColorError="#d32f2f"
+          messages={{
+            downloading: "Preparing website for offline usage...",
+            updateReady: "Website is ready to be updated.",
+            error: "An error occurred during the website update. " +
+              "Check your network or try later.",
+            update: "Update",
+            dismiss: "╳",
+          }}
+        />
+        /* ... */
+      </div>
+    )
+  }
+}
+```
+
+For the styling, you can pass ``useDefaultStyles`` props to ``false``,
+then define some global CSS using this classes:
+
+- ``phenomic-OfflineBanner-banner``
+- ``phenomic-OfflineBanner-spinner``
+- ``phenomic-OfflineBanner-content``
+- ``phenomic-OfflineBanner-message``
+- ``phenomic-OfflineBanner-actions``
+- ``phenomic-OfflineBanner-button``
 
 ---
 

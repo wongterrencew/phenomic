@@ -31,6 +31,7 @@ export type PhenomicOfflineConfig = {
     onDemand?: Array<string>,
     excludes?: Array<string>,
   },
+  banner: boolean,
 }
 
 // Configs generated from configurator

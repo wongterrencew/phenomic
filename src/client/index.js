@@ -2,11 +2,18 @@
 // App
 import React from "react"
 import ReactDOM from "react-dom"
-import { Router, useRouterHistory, applyRouterMiddleware } from "react-router"
+import {
+  Router,
+  Route,
+  useRouterHistory,
+  applyRouterMiddleware,
+}
+from "react-router"
 import createBrowserHistory from "history/lib/createBrowserHistory"
 import useScroll from "react-router-scroll/lib/useScroll"
 import { Provider as ReduxContextProvider } from "react-redux"
 
+import AppContainer from "../components/AppContainer"
 import PhenomicContextProvider from "../components/ContextProvider"
 
 export const browserHistory =
@@ -40,9 +47,12 @@ export default function phenomic({
       <ReduxContextProvider store={ store }>
         <Router
           history={ browserHistory }
-          routes={ routes }
           render={ applyRouterMiddleware(useScroll()) }
-        />
+        >
+          <Route component={ AppContainer }>
+            { routes }
+          </Route>
+        </Router>
       </ReduxContextProvider>
     </PhenomicContextProvider>,
     document.getElementById("phenomic")
