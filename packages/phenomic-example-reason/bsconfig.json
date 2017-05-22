@@ -1,0 +1,10 @@
+{
+  "name" : "phenomic-example-reason",
+  "reason" : { "react-jsx" : true},
+  "bs-dependencies": ["reason-react"],
+  "sources": [
+    {
+      "dir": "components",
+    }
+  ],
+}

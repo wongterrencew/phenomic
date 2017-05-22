@@ -1,0 +1,29 @@
+{
+  "name": "phenomic-example-reason",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start-bs": "bsb -make-world -w",
+    "start": "phenomic start",
+    "build": "bsb -make-world && phenomic build",
+    "clean": "bsb -clean-world",
+    "test": "npm run build"
+  },
+  "devDependencies": {
+    "phenomic": "^1.0.0-alpha.0",
+    "phenomic-cli": "^1.0.0-alpha.0",
+    "phenomic-preset-default": "^1.0.0-alpha.0",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "react-helmet": "^5.0.0",
+    "react-router": "^3.0.0",
+    "reason-react": "^0.1.3",
+    "whatwg-fetch": "^2.0.0",
+    "bs-platform": "^1.7.3"
+  },
+  "phenomic": {
+    "presets": [
+      "phenomic-preset-default"
+    ]
+  }
+}
