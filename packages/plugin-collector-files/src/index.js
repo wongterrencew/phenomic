@@ -113,6 +113,7 @@ export default function() {
           return getFieldValue(json, type).map(value =>
             Promise.all([
               // sorted list, filtered by tags
+              db.put([collectionName, type], sortedKey, { id: key }),
               db.put([collectionName, type, value], sortedKey, { id: key }),
               // global tag list
               db.put([type], value, { id: value, partial: value }),

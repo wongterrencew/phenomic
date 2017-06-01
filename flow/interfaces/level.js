@@ -11,7 +11,7 @@ export type Level = {
     callback: (error: any, data: any) => any
   ): void,
   del(key: string, options: Object, callback: (error: any) => any): void,
-  createReadStream(): stream$Readable,
+  createReadStream(config: LevelStreamConfig): stream$Readable,
   open(callback: (error: any) => any): void,
   close(callback: (error: any) => any): void
 };
@@ -24,7 +24,10 @@ export type Sublevel = Level & SublevelPartial;
 
 export type LevelStreamConfig = {
   gt?: string,
+  // gte?: string,
   lt?: string,
+  // lte?: string,
+  // reverse?: string,
   limit?: number
 };
 

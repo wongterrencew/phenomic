@@ -15,8 +15,8 @@ function url(config: Object): string {
       root,
       config.collection,
       `by-${config.by}`,
-      config.value || "1",
-      config.order || "desc",
+      config.value || "0",
+      config.order || "asc",
       ...(config.limit ? [`limit-${config.limit}`] : []),
       ...(config.limit && config.after ? [`after-${config.after}`] : [])
     ].join("/")

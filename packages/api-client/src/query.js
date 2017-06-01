@@ -17,8 +17,8 @@ function query(config: PhenomicQueryConfig): PhenomicQueryConfig {
   return {
     collection: config.collection,
     by: config.by || "default",
-    value: config.by ? config.value : "1",
-    order: config.order || "desc",
+    value: config.by ? config.value : "0",
+    order: config.order || "asc",
     limit: config.limit,
     ...(config.hasOwnProperty("after") ? { after: config.after } : null)
   };

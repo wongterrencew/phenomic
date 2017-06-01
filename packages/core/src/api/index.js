@@ -20,7 +20,7 @@ const connect = (list, limit, previousList = []) => {
     next: hasNextPage && list[list.length - 1]
       ? encode(list[list.length - 1].key)
       : null,
-    list: list.slice(0, limit)
+    list //: list.slice(0, limit)
   };
 };
 
@@ -87,6 +87,7 @@ function createServer(db: PhenomicDB, plugins: PhenomicPlugins) {
       try {
         const limit = parseInt(req.params.limit);
         const lte = decode(req.params.after);
+        console.log("lte", lte);
         // @todo check lt validity (exist?); otherwise, trigger an error (404?)
         // cause during dev all "lt" are responding 200, even random values
         // but in production, it's not the case as only known values are

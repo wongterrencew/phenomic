@@ -3,12 +3,15 @@ import levelUp from "levelup";
 import levelDown from "leveldown";
 import subLevel from "level-sublevel";
 
+const debug = require("debug")("phenomic:core:db");
+
 const cacheDir = findCacheDir({ name: "phenomic/db", create: true });
 
 const database = levelUp(cacheDir);
 const level = subLevel(database);
 const options = { valueEncoding: "json" };
-const wrapStreamConfig = config => Object.assign({}, config, options);
+const wrapStreamConfig = (config: LevelStreamConfig): LevelStreamConfig =>
+  Object.assign({}, config, options);
 
 function getSublevel(
   db: Sublevel,
@@ -21,14 +24,17 @@ function getSublevel(
   }
   if (filter) {
     sub = sub.concat(filter);
-    if (filter !== "default" && filterValue) {
+    if (filter !== "default" && filterValue && filterValue !== "0") {
       sub = sub.concat(filterValue);
     }
   }
-  return sub.reduce((db: Sublevel, name) => db.sublevel(name), db);
+  const res = sub.reduce((db: Sublevel, name) => db.sublevel(name), db);
+  // debug("get sublevel", sub, Object.keys(res.sublevels).length)
+  return res;
 }
 
 async function getDataRelation(fieldName, keys) {
+  debug("get getDataRelation", fieldName, keys);
   let partial = null;
   try {
     if (Array.isArray(keys)) {
@@ -107,6 +113,7 @@ const db = {
     });
   },
   getPartial(sub: string | Array<string>, key: string) {
+    // debug("get partial", sub, key)
     return new Promise((resolve, reject) => {
       return getSublevel(level, sub).get(key, options, (error, data) => {
         if (error) {
@@ -129,10 +136,12 @@ const db = {
     filterValue: string
   ) {
     return new Promise((resolve, reject) => {
+      debug("getList", sub, filter, filterValue);
       const array = [];
       getSublevel(level, sub, filter, filterValue)
         .createReadStream(wrapStreamConfig(config))
         .on("data", async function(data) {
+          debug("getList data", data);
           array.push(
             db.getPartial(sub, data.value.id).then(value => {
               const type = typeof value;
@@ -156,6 +165,7 @@ const db = {
         })
         .on("end", async function() {
           const returnValue = await Promise.all(array);
+          debug("getList end", returnValue);
           resolve(returnValue);
         })
         .on("error", error => {
