@@ -9,7 +9,6 @@ npm-debug.log
 coverage
 
 # build
-lib
 
 # tests results
 **/__tests__/_output*
