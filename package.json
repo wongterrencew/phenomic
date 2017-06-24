@@ -145,7 +145,7 @@
     "webpack": "^2.3.0"
   },
   "scripts": {
-    "postinstall": "node npm/postinstall.js",
+    "postinstall": "npm run transpile",
     "transpile": "babel --ignore __tests__ --copy-files src --out-dir lib",
     "prepublish": "rimraf lib && npm run transpile",
     "#lint:js:eslint": "https://github.com/eslint/eslint/issues/5679",
