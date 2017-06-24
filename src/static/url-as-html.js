@@ -11,6 +11,8 @@ import PhenomicContextProvider from "../components/ContextProvider"
 import serialize from "../_utils/serialize"
 import minifyCollection from "../loader/minify"
 
+import { ServerStyleSheet, StyleSheetManager } from "styled-components"
+
 export default function(
   url: string,
   options: PhenomicStaticConfig,
@@ -64,15 +66,18 @@ export default function(
 
           /* eslint-disable react/no-multi-comp */
 
+          const sheet = new ServerStyleSheet()
           const renderBody = () => render(
-            <PhenomicContextProvider
-              collection={ collectionMin }
-              metadata={ metadata }
-            >
-              <ReduxContextProvider store={ store }>
-                <RouterContextProvider { ...renderProps } />
-              </ReduxContextProvider>
-            </PhenomicContextProvider>
+            <StyleSheetManager sheet={sheet.instance}>
+              <PhenomicContextProvider
+                collection={ collectionMin }
+                metadata={ metadata }
+              >
+                <ReduxContextProvider store={ store }>
+                  <RouterContextProvider { ...renderProps } />
+                </ReduxContextProvider>
+              </PhenomicContextProvider>
+            </StyleSheetManager>
           )
 
           const renderScript = () => {
@@ -119,6 +124,7 @@ export default function(
                   },
                   renderBody,
                   renderScript,
+                  sheet
                 }
               )
             )

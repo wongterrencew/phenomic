@@ -4,11 +4,14 @@ import React from "react"
 import { renderToString } from "react-dom/server"
 import Helmet from "react-helmet"
 
+import { ServerStyleSheet } from "styled-components"
+
 type Props = {
   css: Array<string>,
   js: Array<string>,
   renderBody: () => React$Element<any>,
   renderScript: () => React$Element<any>,
+  sheet: any
 }
 
 const Html = (props: Props) => {
@@ -76,6 +79,7 @@ const Html = (props: Props) => {
   }
 
   body = body || props.renderBody()
+  const styledComponentsStyles = props.sheet.getStyleElement()
 
   // rewind html metas
   const head = Helmet.rewind()
@@ -100,6 +104,7 @@ const Html = (props: Props) => {
             <link key={ "phenomic.css." + i } rel="stylesheet" href={ file } />
           ))
         }
+        { styledComponentsStyles }
         { head.script.toComponent() }
       </head>
       <body>
