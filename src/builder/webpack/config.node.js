@@ -58,8 +58,8 @@ export default (config: PhenomicConfig): WebpackConfig => {
       ...webpackConfig.externals || defaultExternals,
 
       // keep the loader plugin cache in memory
-      "wongterrencew-fork-phenomic/lib/loader/index",
-      "wongterrencew-fork-phenomic/lib/loader/plugin",
+      "phenomic/lib/loader/index",
+      "phenomic/lib/loader/plugin",
     ],
 
     // sourcemaps

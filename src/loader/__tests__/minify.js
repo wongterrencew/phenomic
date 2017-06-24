@@ -2,7 +2,7 @@ import test from "jest-ava-api"
 
 import minify from "../minify"
 
-test("wongterrencew-fork-phenomic/lib/loader/minify", (t) => {
+test("phenomic/lib/loader/minify", (t) => {
   t.deepEqual(
     minify([
       {

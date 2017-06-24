@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Helmet from "react-helmet"
-import { browserHistory } from "wongterrencew-fork-phenomic/lib/client"
+import { browserHistory } from "phenomic/lib/client"
 
 import "./index.global.css"
 import MagnifierSVG from "./magnifier.svg"

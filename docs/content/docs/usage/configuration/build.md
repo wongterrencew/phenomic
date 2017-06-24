@@ -78,25 +78,25 @@ export default (config = {}) => {
       // below are the default values,
       // you don't need those by default
       plugins: [
-        require("wongterrencew-fork-phenomic/lib/loader-plugin-init-head-property-from-config").default,
-        require("wongterrencew-fork-phenomic/lib/loader-plugin-init-head-property-from-content").default,
-        require("wongterrencew-fork-phenomic/lib/loader-plugin-init-body-property-from-content").default,
-        require("wongterrencew-fork-phenomic/lib/loader-plugin-markdown-init-head.description-property-from-content").default,
-        require("wongterrencew-fork-phenomic/lib/loader-plugin-markdown-transform-body-property-to-html").default,
+        require("phenomic/lib/loader-plugin-init-head-property-from-config").default,
+        require("phenomic/lib/loader-plugin-init-head-property-from-content").default,
+        require("phenomic/lib/loader-plugin-init-body-property-from-content").default,
+        require("phenomic/lib/loader-plugin-markdown-init-head.description-property-from-content").default,
+        require("phenomic/lib/loader-plugin-markdown-transform-body-property-to-html").default,
         // here you can add/replace any function you want
         // for examples, see
         // https://github.com/MoOx/phenomic/blob/master/src/
         // eg: if you need the raw file content in your pages,
         // you can add the following plugin that will add a `raw` property
-        // require("wongterrencew-fork-phenomic/lib/loader-plugin-init-raw-property-from-content").default,
+        // require("phenomic/lib/loader-plugin-init-raw-property-from-content").default,
         // if you want raw body (text content without the front-matter)
         // you can add the following plugin that will add a `rawBody` property
-        // require("wongterrencew-fork-phenomic/lib/loader-plugin-init-rawBody-property-from-content").default,
+        // require("phenomic/lib/loader-plugin-init-rawBody-property-from-content").default,
       ]
 
       // default values for `head`
       // this value can be defined and used by the plugin
-      // "wongterrencew-fork-phenomic/lib/loader-plugin-init-head-property-from-config"
+      // "phenomic/lib/loader-plugin-init-head-property-from-config"
       defaultHead: {
         layout: "Post",
         comments: true,

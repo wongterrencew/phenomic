@@ -1,4 +1,4 @@
-import phenomicStatic from "wongterrencew-fork-phenomic/lib/static"
+import phenomicStatic from "phenomic/lib/static"
 
 import metadata from "../src/metadata.js"
 import routes from "../src/routes.js"

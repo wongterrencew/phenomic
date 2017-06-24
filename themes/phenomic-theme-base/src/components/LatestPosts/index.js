@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react"
-import enhanceCollection from "wongterrencew-fork-phenomic/lib/enhance-collection"
+import enhanceCollection from "phenomic/lib/enhance-collection"
 
 import PagesList from "../../components/PagesList"
 
