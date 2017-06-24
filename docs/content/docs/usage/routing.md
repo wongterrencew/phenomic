@@ -188,7 +188,7 @@ So instead of using `react-router` `browserHistory` directly, you should use the
 
 ```js
 
-import {browserHistory} from "phenomic/lib/client"
+import {browserHistory} from "wongterrencew-fork-phenomic/lib/client"
 
 class Nav extends Component {
   constructor() {

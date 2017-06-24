@@ -11,8 +11,8 @@ phenomic-theme-base.
 
 ```js
 import { combineReducers } from "redux"
-import createStore from "phenomic/lib/redux/createStore"
-import * as phenomicReducers from "phenomic/lib/redux/modules"
+import createStore from "wongterrencew-fork-phenomic/lib/redux/createStore"
+import * as phenomicReducers from "wongterrencew-fork-phenomic/lib/redux/modules"
 import * as reducers from "app/redux"
 
 const store = createStore(
@@ -28,7 +28,7 @@ const store = createStore(
 if (module.hot) {
   // enable hot module replacement for reducers
   module.hot.accept([
-    // "phenomic/lib/redux/modules",
+    // "wongterrencew-fork-phenomic/lib/redux/modules",
     // will not be updated since it's a lib :)
     // but will still needs to be required
 
@@ -37,7 +37,7 @@ if (module.hot) {
   ], () => {
     const updatedReducer = combineReducers({
       // we still need to combine all reducers
-      ...require("phenomic/lib/redux/modules"),
+      ...require("wongterrencew-fork-phenomic/lib/redux/modules"),
       ...require("app/redux/modules"),
     })
     store.replaceReducer(updatedReducer)
@@ -48,7 +48,7 @@ export default store
 ```
 ## Adding custom middlewares and store enhancers to Redux store
 
-`phenomic/lib/redux/createStore` accepts two extra parameters that
+`wongterrencew-fork-phenomic/lib/redux/createStore` accepts two extra parameters that
 allow you to pass custom middlewares and store enhancers.
 
 Here is an example of adding
@@ -58,8 +58,8 @@ to Redux store:
 
 ```js
 import { combineReducers } from "redux"
-import createStore from "phenomic/lib/redux/createStore"
-import * as phenomicReducers from "phenomic/lib/redux/modules"
+import createStore from "wongterrencew-fork-phenomic/lib/redux/createStore"
+import * as phenomicReducers from "wongterrencew-fork-phenomic/lib/redux/modules"
 import { reducer as searchReducer, reduxSearch } from "redux-search"
 import createLogger from "redux-logger"
 

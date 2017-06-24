@@ -4,9 +4,9 @@ import webpack from "webpack"
 import ExtractTextPlugin from "extract-text-webpack-plugin"
 import { phenomicLoader } from "phenomic"
 import PhenomicLoaderFeedWebpackPlugin
-  from "phenomic/lib/loader-feed-webpack-plugin"
+  from "wongterrencew-fork-phenomic/lib/loader-feed-webpack-plugin"
 import PhenomicLoaderSitemapWebpackPlugin
-  from "phenomic/lib/loader-sitemap-webpack-plugin"
+  from "wongterrencew-fork-phenomic/lib/loader-sitemap-webpack-plugin"
 
 import pkg from "./package.json"
 
@@ -38,7 +38,7 @@ export default (config = {}) => {
           query: {
             context: path.join(__dirname, config.source),
             // plugins: [
-            //   ...require("phenomic/lib/loader-preset-markdown").default
+            //   ...require("wongterrencew-fork-phenomic/lib/loader-preset-markdown").default
             // ]
             // see https://phenomic.io/docs/usage/plugins/
           },

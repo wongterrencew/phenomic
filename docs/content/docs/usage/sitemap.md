@@ -12,7 +12,7 @@ Here is a commented part of the webpack configuration that will help:
 import pkg from "./package.json"
 import { phenomicLoader } from "phenomic"
 import PhenomicLoaderSitemapWebpackPlugin
-  from "phenomic/lib/loader-sitemap-webpack-plugin"
+  from "wongterrencew-fork-phenomic/lib/loader-sitemap-webpack-plugin"
 
 // ...
 

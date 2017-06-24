@@ -93,7 +93,7 @@ Just be careful if you are injecting scripts using ``react-helmet``.
 
 - 🍭 Added: sitemap webpack plugin
 ([#907](https://github.com/MoOx/phenomic/pull/907) - @xuopled)
- You can now rely on ``import PhenomicLoaderSitemapWebpackPlugin from "phenomic/lib/loader-sitemap-webpack-plugin"`` to generate a Sitemap.
+ You can now rely on ``import PhenomicLoaderSitemapWebpackPlugin from "wongterrencew-fork-phenomic/lib/loader-sitemap-webpack-plugin"`` to generate a Sitemap.
 See https://phenomic.io/docs/usage/sitemap/ for more information.
 
 # 0.19.5 - 2016-11-25
@@ -173,7 +173,7 @@ directly.
 
 ## 🚨 Minor change
 
-- 🚨 Changed: ``phenomic/lib/Link`` has been relocated.
+- 🚨 Changed: ``wongterrencew-fork-phenomic/lib/Link`` has been relocated.
 To prevent issue in the future, it is now accessible with
 ``import { Link } from "phenomic"``.
 The old reference still works but will show you a warning and will be removed
@@ -434,25 +434,25 @@ And do not hesitate to give feedbacks, it's important for the community ❤️.
 - Removed: ``phenomicLoaderPlugins`` & ``phenomicLoaderPresets`` from "phenomic"
   To avoid shipping unnecessary code into the client bundle (regression
   from 0.16.0), we removed plugins & presets from “phenomic” import.
-  Please directly use ``require(“phenomic/lib/loader-*``, by replacing
+  Please directly use ``require(“wongterrencew-fork-phenomic/lib/loader-*``, by replacing
   camelCase by dashedCase.
 
   - ``phenomicLoaderPlugins.initBodyPropertyFromContent`` ->
-  ``require("phenomic/lib/loader-plugin-init-body-property-from-content").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-init-body-property-from-content").default``
   - ``phenomicLoaderPlugins.initHeadPropertyFromConfig`` ->
-  ``require("phenomic/lib/loader-plugin-init-head-property-from-config").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-init-head-property-from-config").default``
   - ``phenomicLoaderPlugins.initHeadPropertyFromContent`` ->
-  ``require("phenomic/lib/loader-plugin-init-head-property-from-content").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-init-head-property-from-content").default``
   - ``phenomicLoaderPlugins.initRawPropertyFromContent`` ->
-  ``require("phenomic/lib/loader-plugin-init-raw-property-from-content").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-init-raw-property-from-content").default``
   - ``phenomicLoaderPlugins.initRawBodyPropertyFromContent`` ->
-  ``require("phenomic/lib/loader-plugin-init-rawBody-property-from-content").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-init-rawBody-property-from-content").default``
   - ``phenomicLoaderPlugins.markdownInitHeadDescriptionPropertyFromContent`` ->
-  ``require("phenomic/lib/loader-plugin-markdown-init-head.description-property-from-content").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-markdown-init-head.description-property-from-content").default``
   - ``phenomicLoaderPlugins.markdownTransformBodyPropertyToHtml`` ->
-  ``require("phenomic/lib/loader-plugin-markdown-transform-body-property-to-html").default``
-  - ``phenomicLoaderPresets.default`` -> ``require("phenomic/lib/loader-preset-default").default``
-  - ``phenomicLoaderPresets.markdown`` -> ``require("phenomic/lib/loader-preset-markdown").default``
+  ``require("wongterrencew-fork-phenomic/lib/loader-plugin-markdown-transform-body-property-to-html").default``
+  - ``phenomicLoaderPresets.default`` -> ``require("wongterrencew-fork-phenomic/lib/loader-preset-default").default``
+  - ``phenomicLoaderPresets.markdown`` -> ``require("wongterrencew-fork-phenomic/lib/loader-preset-markdown").default``
 
   ([08bd04f](https://github.com/MoOx/phenomic/commit/08bd04feb2254891caf809e383fca0f6608670c1) - @MoOx)
 - Removed: ``PageContainer`` does not wrap its child into a ``<div>``
@@ -472,7 +472,7 @@ And do not hesitate to give feedbacks, it's important for the community ❤️.
 
 ### Minor changes
 
-- Changed: ``phenomic/lib/PageContainer`` has been relocated.
+- Changed: ``wongterrencew-fork-phenomic/lib/PageContainer`` has been relocated.
   To prevent issue in the future, is now accessible by doing
   ``import { PageContainer } from "phenomic"``.
   If you want to import it with a different name, you can do it this way:
@@ -605,7 +605,7 @@ And do not hesitate to give feedbacks, it's important for the community ❤️.
 
 ## tl;dr
 
-- 🔨 Breaking change: ``"phenomic/lib/content-loader"`` should now be replaced
+- 🔨 Breaking change: ``"wongterrencew-fork-phenomic/lib/content-loader"`` should now be replaced
   by a value imported from ``"phenomic"``
   (``import { phenomicLoader } from "phenomic"``).
   Following this, phenomic loader configuration should be directly in
@@ -641,7 +641,7 @@ you can filter projects by tags.
   ``remark-highlight.js@^4.0.0``
   This might fix issue with broken highlighted code.
   (@MoOx)
-- Changed: ``phenomic/lib/content-loader`` reference is deprecated in favor of
+- Changed: ``wongterrencew-fork-phenomic/lib/content-loader`` reference is deprecated in favor of
   ``import { phenomicLoader } from "phenomic"``.
   You can use ``phenomicLoader`` variable in webpack configuration to reference
   Phenomic loader. This change allows us more flexibility for the location of
@@ -725,7 +725,7 @@ you can filter projects by tags.
   (see documentation for more informations).
   ([#260](https://github.com/MoOx/phenomic/issues/260) - @MoOx)
 - Added: ``"phenomic"`` package now exposes new values
-  - ``phenomicLoader`` (ex "phenomic/lib/content-loader")
+  - ``phenomicLoader`` (ex "wongterrencew-fork-phenomic/lib/content-loader")
   - ``phenomicLoaderPlugins``, the list of all available plugins
   - ``phenomicLoaderPresets``, that contains ``default`` and ``markdown`` presets
   (see documentation for more informations).
@@ -1282,7 +1282,7 @@ boilerplate:
   import { Route } from "react-router"
 
   import LayoutContainer from "../LayoutContainer"
-  import PhenomicPageContainer from "phenomic/lib/PageContainer"
+  import PhenomicPageContainer from "wongterrencew-fork-phenomic/lib/PageContainer"
 
   import Page from "../layouts/Page"
   import PageError from "../layouts/PageError"

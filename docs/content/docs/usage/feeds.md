@@ -13,7 +13,7 @@ Here is a commented part of the webpack configuration that will help:
 import pkg from "./package.json"
 import { phenomicLoader } from "phenomic"
 import PhenomicLoaderFeedWebpackPlugin
-  from "phenomic/lib/loader-feed-webpack-plugin"
+  from "wongterrencew-fork-phenomic/lib/loader-feed-webpack-plugin"
 
 // ...
 
